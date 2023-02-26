@@ -104,14 +104,12 @@ async function main(...args: string[]): Promise<any> {
     pim1.exportAssociationTypes(),
     pim1.exportAttributeGroups(),
     pim1.exportAttributes(),
-    pim1.exportCategories(),
     pim1.exportChannels(),
     pim1.exportFamilies(),
 
     pim2.exportAssociationTypes(),
     pim2.exportAttributeGroups(),
     pim2.exportAttributes(),
-    pim2.exportCategories(),
     pim2.exportChannels(),
     pim2.exportFamilies()
 
@@ -151,7 +149,6 @@ async function main(...args: string[]): Promise<any> {
   const attributeGroups: number = await deltaCatalog(pim1.filenameAttributeGroups, 'code');
   const attributes: number = await deltaCatalog(pim1.filenameAttributes, 'code');
   const attributeOptions: number = await deltaCatalog(pim1.filenameAttributeOptions, ['attribute', 'code']);
-  const categories: number = await deltaCatalog(pim1.filenameCategories, 'code');
   const families: number = await deltaCatalog(pim1.filenameFamilies, 'code');
 //  const familyVariants: number = await deltaCatalog(pim1.filenameFamilyVariants, 'code');
 
@@ -180,7 +177,6 @@ async function main(...args: string[]): Promise<any> {
   results = attributeGroups ? await pim2.importAttributeGroups() : null;
   results = attributes ? await pim2.importAttributes() : null;
   results = attributeOptions ? await pim2.importAttributeOptions() : null;
-  results = categories ? await pim2.importCategories() : null;
   results = families ? await pim2.importFamilies() : null;
 //  results = familyVariants ? await pim2.importFamilyVariants() : null;
 
